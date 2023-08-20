@@ -31,7 +31,8 @@ streamlit.write('The user entered', fruit_choice)
 
 add_myfruit = streamlit.text_input('What fruit would you like to add?', 'Orange')
 #streamlit.write('The user entered', add_myfruit)
-streamlit.text('Thanks for adding ' + add_myfruit)
+# streamlit.text('Thanks for adding ' + add_myfruit)
+my_cur.execute("insert into fruit_load_list values('"+ add_myfruit +"')")
 
 
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
