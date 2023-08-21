@@ -26,8 +26,8 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 streamlit.dataframe(fruits_to_show)
 
 
-def get_fruityvice_data():
-  fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+def get_fruityvice_data(this_fruit_choice):
+  fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_choice)
   # streamlit.text(fruityvice_response.json())
 
   #take the json version of the response and normalize it
@@ -63,11 +63,12 @@ if streamlit.button('Get Fruit Load List'):
   # streamlit.text("Hello from Snowflake:")
   streamlit.dataframe(my_data_rows)
 
-streamlit.stop()
+
 add_myfruit = streamlit.text_input('What fruit would you like to add?', '')
 #streamlit.write('The user entered', add_myfruit)
 # streamlit.text('Thanks for adding ' + add_myfruit)
-my_cur.execute("insert into fruit_load_list values('"+ add_myfruit +"')")
+if streamlit.button('Add a Fruit to the List')
+  my_cur.execute("insert into fruit_load_list values('"+ add_myfruit +"')")
 
   
 
